@@ -1,0 +1,127 @@
+/* --- GALLERY PAGE STYLES --- */
+
+.gallery-section {
+    background-color: var(--bg-dark);
+    padding: 100px 0; /* Samakan dengan padding partners-section */
+    min-height: 100vh;
+}
+
+/* Header Styling (Konsisten dengan Partners) */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tagline {
+    display: block;
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* Layout List Baru */
+.gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Card Style */
+.gallery-card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(11, 251, 95, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Image Container */
+.gallery-image {
+    flex: 1.2;
+    height: 350px;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover .gallery-image img {
+    transform: scale(1.05);
+}
+
+/* Info Box Container */
+.gallery-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.info-title {
+    color: var(--text-main, #ffffff);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.info-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .gallery-card {
+        flex-direction: column; /* Gambar di atas, teks di bawah pada tablet/mobile */
+    }
+
+    .gallery-image {
+        height: 250px;
+        flex: none;
+    }
+
+    .gallery-info {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 60px 20px;
+    }
+}
