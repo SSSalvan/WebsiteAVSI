@@ -290,65 +290,6 @@ ul {
     color: #666;
 }
 
-@media (max-width: 992px) {
-    .focus-grid {
-        grid-template-columns: 1fr; 
-        padding: 0 10px;
-    }
-    
-    .focus-section {
-        margin-top: 20px; 
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-menu { display: none; } 
-    
-    .hero {
-        padding: 0 20px;
-    }
-
-    .hero h1 { 
-        font-size: 2.2rem; 
-        line-height: 1.2;
-    }
-
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .btn-outline { 
-        margin-left: 0; 
-        width: 100%; 
-        max-width: 300px;
-    }
-    
-    .btn-primary { 
-        width: 100%; 
-        max-width: 300px;
-    }
-
-    .partners-wrapper { 
-        gap: 20px; 
-    }
-    
-    .partner-logo { 
-        width: 45%; 
-    }
-
-    .email-link {
-        font-size: 1.2rem; 
-        word-wrap: break-word;
-    }
-}
-
 .focus-section {
     padding: 60px 0;
     margin-top: -50px; 
@@ -358,7 +299,7 @@ ul {
 
 .focus-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Desktop: 2 kolom berdampingan */
     gap: 30px;
 }
 
@@ -415,25 +356,117 @@ ul {
     text-transform: uppercase;
 }
 
-.btn-primary-small {
-    background-color: var(--accent);
-    color: var(--bg-dark);
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 0.8rem;
+.focus-section {
+    padding: 60px 0;
+    margin-top: -50px; 
+    position: relative;
+    z-index: 10;
 }
 
-.btn-outline-small {
-    border: 1px solid var(--text-dim);
+.focus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Desktop: 2 kolom berdampingan */
+    gap: 30px;
+}
+
+.focus-card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-5px);
+}
+
+.focus-card.highlighted {
+    border: 1px solid var(--accent);
+    background: linear-gradient(145deg, #393E46 0%, #2e333a 100%);
+}
+
+.focus-icon img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.focus-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     color: var(--text-light);
-    padding: 10px 25px;
-    border-radius: 5px;
+}
+
+.focus-card p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.focus-list {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.focus-list li {
+    background: rgba(0, 173, 181, 0.1);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 700;
-    font-size: 0.8rem;
+    text-transform: uppercase;
 }
 
 html, body {
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
     width: 100%;
+}
+
+@media (max-width: 992px) {
+    .focus-grid {
+        grid-template-columns: 1fr; /* Tumpuk jadi 1 kolom di Tablet/HP */
+        padding: 0 10px;
+    }
+    
+    .focus-section {
+        margin-top: 20px; /* Hilangkan overlap agar tidak nabrak teks Hero */
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu { display: none; } 
+    
+    .hero h1 { 
+        font-size: 2.2rem; 
+        line-height: 1.2;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-outline, .btn-primary { 
+        margin-left: 0; 
+        width: 100%; 
+        max-width: 300px;
+    }
+
+    .partner-logo { 
+        width: 45%; 
+    }
+
+    .email-link {
+        font-size: 1.2rem; 
+    }
 }
