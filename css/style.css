@@ -300,10 +300,9 @@ ul {
     .partner-logo img { width: 60px; height: 60px; }
 }
 
-/* --- FOCUS SECTION --- */
 .focus-section {
     padding: 60px 0;
-    margin-top: -50px; /* Overlaps slightly with hero for a modern look */
+    margin-top: -50px; 
     position: relative;
     z-index: 10;
 }
@@ -367,7 +366,6 @@ ul {
     text-transform: uppercase;
 }
 
-/* Smaller button variations */
 .btn-primary-small {
     background-color: var(--accent);
     color: var(--bg-dark);
