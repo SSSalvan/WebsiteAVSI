@@ -443,42 +443,34 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    /* --- Animation State: Hidden --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
-}
-
-/* --- Animation State: Visible (The "Loading" effect) --- */
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Mobile Navigation Refinement --- */
-@media (max-width: 768px) {
+    
+    /* Tampilkan Hamburger */
     .menu-toggle {
-        display: block; /* Show hamburger */
+        display: block;
+        cursor: pointer;
         z-index: 1100;
+        padding: 10px;
     }
 
+    /* Garis Hamburger - Tipis ala Santa Monica Studio */
     .bar {
-        width: 28px; /* Slightly wider lines */
-        height: 2px; /* Thinner lines like the screenshot */
-        background: var(--text-light);
+        display: block;
+        width: 25px;
+        height: 2px; 
         margin: 6px auto;
-        transition: 0.3s ease-in-out;
+        background-color: var(--text-light);
+        transition: all 0.3s ease-in-out;
     }
 
+    /* Mobile Navigation Drawer */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Slide from right side */
-        width: 100%;  /* Full screen width on mobile */
+        right: -100%; /* Sembunyi di luar layar kanan */
+        width: 100%;
         height: 100vh;
-        background-color: rgba(26, 30, 36, 0.98); 
-        backdrop-filter: blur(15px); /* Premium blur like high-end sites */
+        background-color: rgba(26, 30, 36, 0.98);
+        backdrop-filter: blur(15px); /* Efek blur premium */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -487,9 +479,10 @@ html, body {
     }
 
     .nav-menu.active {
-        right: 0;
+        right: 0; /* Slide masuk */
     }
 
+    /* Animasi Link Menu (Staggered) */
     .nav-menu li {
         margin: 20px 0;
         opacity: 0;
@@ -497,26 +490,45 @@ html, body {
         transition: 0.4s ease;
     }
 
-    /* Wave effect when menu opens */
     .nav-menu.active li {
         opacity: 1;
         transform: translateX(0);
     }
 
-    /* Hamburger to 'X' Animation */
+    /* Transformasi Hamburger menjadi 'X' saat Aktif */
     #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* Button adjustments */
+    /* Penyesuaian Tombol Hero di Mobile */
     .hero-buttons {
         display: flex;
         flex-direction: column;
-        gap: 15px;
         align-items: center;
+        gap: 15px;
+        width: 100%;
     }
-    .btn-outline { margin-left: 0 !important; width: 250px; }
-    .btn-primary { width: 250px; }
-}
+
+    .btn-primary, .btn-outline {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 !important;
+        text-align: center;
+    }
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sembunyikan hamburger secara default di layar lebar */
+.menu-toggle {
+    display: none;
+}
