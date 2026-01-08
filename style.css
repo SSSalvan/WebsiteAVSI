@@ -1,0 +1,511 @@
+
+:root {
+    --primary: #00ADB5;
+    --accent: #00ADB5;
+    --bg-dark: #222831;
+    --bg-card: #393E46;
+    --text-light: #EEEEEE;
+    --text-dim: #adb5bd;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(34, 40, 49, 0.95);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x1080/222831/393E46');
+    background-size: cover;
+    background-position: center;
+}
+
+.tagline {
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--text-dim);
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: white;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    margin-left: 15px;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--bg-dark);
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.bg-secondary {
+    background-color: var(--bg-card);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 20px auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.genre {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.partners-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    text-align: center;
+}
+
+.partner-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 140px; 
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.partner-logo img {
+    width: 80px;  
+    height: 80px; 
+    object-fit: contain; 
+    filter: none; 
+    transition: 0.3s ease;
+}
+
+.partner-logo:hover img {
+    transform: scale(1.1);
+}
+
+.footer-section {
+    padding: 80px 0 20px;
+    background-color: #1a1e24;
+    text-align: center;
+}
+
+.email-link {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 20px 0;
+    display: block;
+}
+
+.social-links {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #393E46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: transparent;
+}
+
+.social-links a img {
+    width: 32px; 
+    height: 32px;
+    object-fit: contain;
+    filter: none; 
+}
+
+.social-links a:hover {
+    background: rgba(0, 173, 181, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.focus-section {
+    padding: 60px 0;
+    margin-top: -50px; 
+    position: relative;
+    z-index: 10;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Desktop: 2 kolom berdampingan */
+    gap: 30px;
+}
+
+.focus-card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-5px);
+}
+
+.focus-card.highlighted {
+    border: 1px solid var(--accent);
+    background: linear-gradient(145deg, #393E46 0%, #2e333a 100%);
+}
+
+.focus-icon img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.focus-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.focus-card p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.focus-list {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.focus-list li {
+    background: rgba(0, 173, 181, 0.1);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.focus-section {
+    padding: 60px 0;
+    margin-top: -50px; 
+    position: relative;
+    z-index: 10;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Desktop: 2 kolom berdampingan */
+    gap: 30px;
+}
+
+.focus-card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-5px);
+}
+
+.focus-card.highlighted {
+    border: 1px solid var(--accent);
+    background: linear-gradient(145deg, #393E46 0%, #2e333a 100%);
+}
+
+.focus-icon img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.focus-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.focus-card p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.focus-list {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.focus-list li {
+    background: rgba(0, 173, 181, 0.1);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .focus-grid {
+        grid-template-columns: 1fr; /* Tumpuk jadi 1 kolom di Tablet/HP */
+        padding: 0 10px;
+    }
+    
+    .focus-section {
+        margin-top: 20px; /* Hilangkan overlap agar tidak nabrak teks Hero */
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. Mengetengahkan Tombol Hero */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column; /* Tombol tumpuk atas-bawah */
+        align-items: center;    /* Rata tengah secara horizontal */
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-outline {
+        margin: 0 !important;   /* Hapus margin kiri pada btn-outline */
+        width: 80%;            /* Lebar tombol di HP */
+        max-width: 300px;
+        text-align: center;
+    }
+
+    /* 2. Hamburger Menu Styles */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: var(--text-light);
+    }
+
+    /* Sembunyikan menu asli dan ubah jadi overlay */
+    .nav-menu {
+        position: fixed;
+        top: -100%; /* Sembunyi di atas layar */
+        left: 0;
+        flex-direction: column;
+        background-color: var(--bg-dark);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        padding: 80px 0 30px 0;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        top: 0; /* Muncul ketika diklik */
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    /* Animasi X saat menu dibuka */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* Pastikan ini ada agar menu-toggle tidak muncul di Desktop */
+.menu-toggle {
+    display: none;
+}
