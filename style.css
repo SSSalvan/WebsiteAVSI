@@ -443,92 +443,80 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    /* 1. Mengetengahkan Tombol Hero */
-    .hero-buttons {
-        display: flex;
-        flex-direction: column; /* Tombol tumpuk atas-bawah */
-        align-items: center;    /* Rata tengah secara horizontal */
-        justify-content: center;
-        gap: 15px;
-        width: 100%;
-    }
+    /* --- Animation State: Hidden --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
 
-    .btn-primary, .btn-outline {
-        margin: 0 !important;   /* Hapus margin kiri pada btn-outline */
-        width: 80%;            /* Lebar tombol di HP */
-        max-width: 300px;
-        text-align: center;
-    }
+/* --- Animation State: Visible (The "Loading" effect) --- */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    /* 2. Hamburger Menu Styles */
+/* --- Mobile Navigation Refinement --- */
+@media (max-width: 768px) {
     .menu-toggle {
-        display: block;
-        cursor: pointer;
-        z-index: 1001;
+        display: block; /* Show hamburger */
+        z-index: 1100;
     }
 
     .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        transition: all 0.3s ease-in-out;
+        width: 28px; /* Slightly wider lines */
+        height: 2px; /* Thinner lines like the screenshot */
         background: var(--text-light);
+        margin: 6px auto;
+        transition: 0.3s ease-in-out;
     }
 
-    /* Sembunyikan menu asli dan ubah jadi overlay */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Start hidden off-screen to the right */
-        flex-direction: column;
-        background-color: rgba(26, 30, 36, 0.98); /* Slightly darker for contrast */
-        backdrop-filter: blur(15px); /* Premium blur effect */
-        width: 80%; /* Takes up most of the screen width */
+        right: -100%; /* Slide from right side */
+        width: 100%;  /* Full screen width on mobile */
         height: 100vh;
+        background-color: rgba(26, 30, 36, 0.98); 
+        backdrop-filter: blur(15px); /* Premium blur like high-end sites */
+        flex-direction: column;
         justify-content: center;
-        text-align: center;
-        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy bounce effect */
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         z-index: 1000;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 
     .nav-menu.active {
-        right: 0; /* Slides into view */
+        right: 0;
     }
-    
+
     .nav-menu li {
-        margin: 25px 0;
+        margin: 20px 0;
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(30px);
         transition: 0.4s ease;
     }
 
+    /* Wave effect when menu opens */
     .nav-menu.active li {
         opacity: 1;
         transform: translateX(0);
     }
 
-    /* Animasi X saat menu dibuka */
+    /* Hamburger to 'X' Animation */
     #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Button adjustments */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    .btn-outline { margin-left: 0 !important; width: 250px; }
+    .btn-primary { width: 250px; }
+}
 }
 
-/* Pastikan ini ada agar menu-toggle tidak muncul di Desktop */
-.menu-toggle {
-    display: none;
-}
-
-/* Animation State: Hidden */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-
-/* Animation State: Visible */
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
