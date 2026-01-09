@@ -479,31 +479,33 @@ html, body {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 250px;         /* Lebar bar lebih kecil agar rapi */
+        right: -100%; 
+        width: 260px;  
         height: 100vh;
-        background-color: #1a1e24;
+        background-color: #1a1e24; 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Mulai dari atas, bukan tengah */
-        padding-top: 100px;         /* Memberi ruang agar tidak mentok header */
-        transition: 0.4s ease-in-out;
+        justify-content: flex-start; 
+        padding-top: 100px;         
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5); 
     }
 
     .nav-menu.active {
-        right: 0; /* Slide masuk */
+        right: 0; 
     }
 
     .nav-menu li {
         width: 100%;
         text-align: center;
-        margin: 15px 0; /* Jarak vertikal yang lebih pas */
+        margin: 15px 0; 
     }
 
     .nav-menu li a {
-        font-size: 1.1rem; /* Ukuran teks lebih proporsional */
+        font-size: 1.1rem; 
         letter-spacing: 2px;
     }
 
@@ -518,12 +520,10 @@ html, body {
         margin-top: 20px;
     }
 
-    /* Animasi Menjadi 'X' saat menu terbuka */
     #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* Ketengahkan tombol di Hero */
     .hero-buttons {
         display: flex;
         flex-direction: column;
