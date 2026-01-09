@@ -479,27 +479,26 @@ html, body {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Sembunyi di kanan luar layar */
-        width: 100%;
+        right: -100%; /* Sembunyi di luar layar kanan */
+        width: 70%;    /* Lebar menu sliding (bisa disesuaikan) */
         height: 100vh;
-        background-color: rgba(26, 30, 36, 0.98);
-        backdrop-filter: blur(15px); /* Efek blur premium */
+        background-color: #1a1e24; /* Warna solid agar tidak tembus pandang */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        transition: 0.4s ease-in-out; /* Durasi slide */
         z-index: 1000;
-        display: flex; /* Pastikan tetap flex agar item berjejer vertikal */
     }
 
     .nav-menu.active {
-        right: 0; /* Geser masuk saat diklik */
+        right: 0; /* Slide masuk ke posisi awal */
     }
 
     .nav-menu li {
-        margin: 20px 0;
-        opacity: 0;
-        transform: translateX(20px);
+        margin: 25px 0;
+        width: 100%;
+        text-align: center;
     }
 
     .nav-menu.active li {

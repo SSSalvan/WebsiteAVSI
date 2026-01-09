@@ -1,26 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-menu');
-    const navItems = document.querySelectorAll('.nav-menu li');
+    const navLinks = document.querySelectorAll('.nav-link'); // Semua link menu
 
-    // Toggle Navigasi Mobile
+    // 1. Toggle Buka/Tutup Menu
     if (menu) {
         menu.addEventListener('click', () => {
             menu.classList.toggle('is-active');
             menuLinks.classList.toggle('active');
-
-            // Animasi masuk satu-persatu untuk menu item
-            navItems.forEach((link, index) => {
-                if (link.style.transitionDelay) {
-                    link.style.transitionDelay = '';
-                } else {
-                    link.style.transitionDelay = `${(index * 0.1) + 0.2}s`;
-                }
-            });
         });
     }
 
-    // Animasi Reveal saat Scroll (Loading Effect)
+    // 2. Tutup Menu secara otomatis saat link diklik
+    navLinks.forEach(n => n.addEventListener('click', () => {
+        menu.classList.remove('is-active');
+        menuLinks.classList.remove('active');
+    }));
+
+    // --- Animasi Reveal (Kode kamu yang lama tetap di sini) ---
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
