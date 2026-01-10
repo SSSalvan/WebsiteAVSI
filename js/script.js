@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const closeModal = () => {
-            modal.style.display = 'none';
+            modal.style.display = 'none';//
             
             // UNLOCK SCROLL
             document.documentElement.classList.remove('modal-open');
