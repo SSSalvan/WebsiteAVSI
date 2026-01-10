@@ -63,7 +63,7 @@ ul {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 .nav-link {
@@ -420,6 +420,7 @@ html, body {
         transition: 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         z-index: 1000;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        gap: 10px;
     }
 
     .nav-menu.active {
