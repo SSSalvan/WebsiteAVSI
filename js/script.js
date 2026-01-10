@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. NAVIGATION & MOBILE MENU
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -18,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. REVEAL ON SCROLL (MOBILE-OPTIMIZED)
     const revealElements = document.querySelectorAll('.reveal');
-
     const revealOptions = {
         threshold: 0.01,
         rootMargin: "0px 0px -10px 0px"
@@ -43,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. MODAL GALLERY LOGIC
     const modal = document.getElementById('project-modal');
     const modalGrid = document.getElementById('modal-gallery-grid');
+    const modalName = document.getElementById('modal-project-name');
     const closeBtn = document.querySelector('.modal-close');
     const projectCards = document.querySelectorAll('.card[data-gallery]');
 
@@ -53,15 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
                 const imageData = card.getAttribute('data-gallery');
+                const titleText = card.querySelector('h3').innerText; // Grabs the name
+                
                 if (!imageData) return;
 
+                modalName.innerText = titleText; // Sets the name in the header
                 const images = imageData.split(',');
                 modalGrid.innerHTML = '';
                 
                 images.forEach(src => {
                     const img = document.createElement('img');
                     img.src = src.trim();
-                    img.loading = "lazy"; 
+                    img.loading = "lazy";
                     modalGrid.appendChild(img);
                 });
 
@@ -76,11 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
-        
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
         });

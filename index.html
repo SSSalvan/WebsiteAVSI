@@ -86,7 +86,9 @@
             
             <div class="grid-container">
                 <article class="card reveal" 
-                        data-gallery="asset/Sword_ref.png, asset/chagee.png, asset/Sword_detail2.png" 
+                        data-gallery="asset/Sword_ref.png, 
+                        asset/chagee.png, 
+                        asset/Sword_detail2.png" 
                         style="cursor: pointer;">
                     <div class="card-image" style="background-image: url('asset/Sword_ref.png');">
                         <div class="image-overlay"></div>
@@ -98,7 +100,9 @@
                 </article>
 
                 <article class="card reveal" 
-                        data-gallery="asset/Enviroment_ref.png, asset/Enviroment_detail1.png, asset/Enviroment_detail2.png" 
+                        data-gallery="asset/Enviroment_ref.png, 
+                        asset/Enviroment_detail1.png, 
+                        asset/Enviroment_detail2.png" 
                         style="cursor: pointer;">
                     <div class="card-image" style="background-image: url('asset/Enviroment_ref.png');">
                         <div class="image-overlay"></div>
@@ -176,11 +180,18 @@
     </footer>
 
     <div id="project-modal" class="project-modal">
-    <span class="modal-close">&times;</span>
+    <div class="modal-header">
+        <h2 id="modal-project-name">
+            Project Name
+        </h2>
+        <span class="modal-close">&times;</span>
+    </div>
+
     <div class="modal-content">
-        <div id="modal-gallery-grid" class="modal-gallery-grid"></div>
+        <div id="modal-gallery-grid" class="modal-gallery-grid">
+            </div>
     </div>
-    </div>
+</div>
 
     <script src="js/script.js"></script>
     

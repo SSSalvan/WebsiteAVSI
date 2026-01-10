@@ -393,6 +393,29 @@ ul {
     overflow-y: auto;
 }
 
+#modal-project-name {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    margin: 0;
+}
+
+.modal-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    background-color: rgba(10, 12, 15, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2100;
+}
+
 .modal-content {
     padding: 80px 20px;
     max-width: 1000px;
@@ -440,7 +463,7 @@ html, body {
     }
 
     .modal-content {
-        padding: 60px 10px;
+    padding: 100px 20px 40px; 
     }
     
     .modal-gallery-grid {
