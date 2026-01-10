@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Mobile Menu Logic ---
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-menu');
 
@@ -9,6 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 2. Scroll Reveal Logic (FIX FOR GONE PROJECTS) ---
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const revealPoint = 150; // Trigger when 150px into view
+            
+            if (elementTop < windowHeight - revealPoint) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Run once on load to show elements already in view
+
+    // --- 3. Modal Gallery Logic ---
     const modal = document.getElementById('project-modal');
     const modalGrid = document.getElementById('modal-gallery-grid');
     const closeBtn = document.querySelector('.modal-close');
