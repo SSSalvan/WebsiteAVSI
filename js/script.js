@@ -49,13 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.modal-close');
     const projectCards = document.querySelectorAll('.card[data-gallery]');
 
+    let scrollPosition = 0;
+
     if (modal && modalGrid) {
-        // Function to open the modal and lock scroll
         const openModal = (card) => {
             const imageData = card.getAttribute('data-gallery');
             const titleText = card.querySelector('h3').innerText;
             
             if (!imageData) return;
+
+            // SAVE THE POSITION before locking the scroll
+            scrollPosition = window.pageYOffset;
 
             modalName.innerText = titleText;
             modalGrid.innerHTML = '';
@@ -70,19 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             modal.style.display = 'block';
             
-            // LOCKS THE SCROLL using the class we made
+            // LOCK SCROLL
+            document.documentElement.classList.add('modal-open');
             document.body.classList.add('modal-open'); 
         };
 
-        // Function to close the modal and unlock scroll
         const closeModal = () => {
             modal.style.display = 'none';
             
-            // UNLOCKS THE SCROLL
+            // UNLOCK SCROLL
+            document.documentElement.classList.remove('modal-open');
             document.body.classList.remove('modal-open'); 
+
+            // RETURN TO SAVED POSITION
+            window.scrollTo(0, scrollPosition);
         };
 
-        // Attach listeners once
         projectCards.forEach(card => {
             card.addEventListener('click', () => openModal(card));
         });
