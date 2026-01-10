@@ -447,6 +447,15 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
+html.modal-open,
+body.modal-open {
+    overflow: hidden !important;
+    height: 100% !important;
+    position: fixed; 
+    width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -468,6 +477,11 @@ html, body {
     
     .modal-gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    body.modal-open {
+    overflow: hidden;
+    height: 100vh;
     }
 
     .menu-toggle {

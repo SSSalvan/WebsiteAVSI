@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. NAVIGATION & MOBILE MENU
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 2. REVEAL ON SCROLL
     const revealElements = document.querySelectorAll('.reveal');
     const revealOptions = {
         threshold: 0.01,
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 3. MODAL GALLERY LOGIC
     const modal = document.getElementById('project-modal');
     const modalGrid = document.getElementById('modal-gallery-grid');
     const modalName = document.getElementById('modal-project-name');
@@ -47,38 +50,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectCards = document.querySelectorAll('.card[data-gallery]');
 
     if (modal && modalGrid) {
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const imageData = card.getAttribute('data-gallery');
-                const titleText = card.querySelector('h3').innerText; // Grabs the name
-                
-                if (!imageData) return;
+        // Function to open the modal and lock scroll
+        const openModal = (card) => {
+            const imageData = card.getAttribute('data-gallery');
+            const titleText = card.querySelector('h3').innerText;
+            
+            if (!imageData) return;
 
-                modalName.innerText = titleText; // Sets the name in the header
-                const images = imageData.split(',');
-                modalGrid.innerHTML = '';
-                
-                images.forEach(src => {
-                    const img = document.createElement('img');
-                    img.src = src.trim();
-                    img.loading = "lazy";
-                    modalGrid.appendChild(img);
-                });
-
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; 
+            modalName.innerText = titleText;
+            modalGrid.innerHTML = '';
+            
+            const images = imageData.split(',');
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src.trim();
+                img.loading = "lazy";
+                modalGrid.appendChild(img);
             });
-        });
 
-        const closeModal = () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            modal.style.display = 'block';
+            
+            // LOCKS THE SCROLL using the class we made
+            document.body.classList.add('modal-open'); 
         };
 
+        // Function to close the modal and unlock scroll
+        const closeModal = () => {
+            modal.style.display = 'none';
+            
+            // UNLOCKS THE SCROLL
+            document.body.classList.remove('modal-open'); 
+        };
+
+        // Attach listeners once
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => openModal(card));
+        });
+
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
+
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
         });
