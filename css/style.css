@@ -379,6 +379,50 @@ ul {
     text-transform: uppercase;
 }
 
+.project-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 12, 15, 0.98);
+    backdrop-filter: blur(15px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.modal-close {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    color: var(--text-light);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2100;
+    line-height: 1;
+}
+
+.modal-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.modal-gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -388,6 +432,14 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    .modal-content {
+        padding: 60px 10px;
+    }
+    
+    .modal-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
     .menu-toggle {
         display: block;
         cursor: pointer;

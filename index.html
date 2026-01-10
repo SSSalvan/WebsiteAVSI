@@ -85,25 +85,29 @@
             </div>
             
             <div class="grid-container">
-                <article class="card reveal">
+                <article class="card reveal" 
+                        data-gallery="asset/Sword_ref.png, asset/Sword_detail1.png, asset/Sword_detail2.png" 
+                        style="cursor: pointer;">
                     <div class="card-image" style="background-image: url('asset/Sword_ref.png');">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="card-content">
                         <p class="genre">Action RPG</p>
                         <h3>Excalibur</h3>
-                        <p>High-fidelity sword assets optimized for Unreal Engine 5.</p>
+                        <p>High-fidelity sword assets optimized for UE5. <strong>(Click to view gallery)</strong></p>
                     </div>
                 </article>
 
-                <article class="card reveal">
+                <article class="card reveal" 
+                        data-gallery="asset/Enviroment_ref.png, asset/Enviroment_detail1.png, asset/Enviroment_detail2.png" 
+                        style="cursor: pointer;">
                     <div class="card-image" style="background-image: url('asset/Enviroment_ref.png');">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="card-content">
                         <p class="genre">Simulation</p>
                         <h3>Meadow</h3>
-                        <p>Immersive nature environment featuring dynamic weather systems.</p>
+                        <p>Immersive nature environment with dynamic weather. <strong>(Click to view gallery)</strong></p>
                     </div>
                 </article>
             </div>
@@ -172,6 +176,14 @@
         </div>
     </footer>
 
+    <div id="project-modal" class="project-modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content">
+        <div id="modal-gallery-grid" class="modal-gallery-grid"></div>
+    </div>
+    </div>
+
     <script src="js/script.js"></script>
+    
 </body>
 </html>

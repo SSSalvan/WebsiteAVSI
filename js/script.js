@@ -1,34 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-menu');
-    const navItems = document.querySelectorAll('.nav-link, .nav-menu .btn');
 
-    menu.addEventListener('click', () => {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-    });
+    if (menu) {
+        menu.addEventListener('click', () => {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+        });
+    }
 
-    navItems.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('is-active');
-            menuLinks.classList.remove('active');
+    const modal = document.getElementById('project-modal');
+    const modalGrid = document.getElementById('modal-gallery-grid');
+    const closeBtn = document.querySelector('.modal-close');
+    const projectCards = document.querySelectorAll('.card[data-gallery]');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const images = card.getAttribute('data-gallery').split(',');
+            modalGrid.innerHTML = '';
+            
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src.trim();
+                modalGrid.appendChild(img);
+            });
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
         });
     });
 
-    const revealElements = document.querySelectorAll('.reveal, .card, .focus-card, .gallery-item, .partner-logo');
-    
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 100;
-
-            if (elementTop < windowHeight - elementVisible) {
-                el.classList.add('active');
-            }
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
-    };
+    }
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
